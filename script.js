@@ -21,7 +21,15 @@ class TicTacToe{
             this.turnDisplayElement.innerText="player two's turn";
         }
     }
+    updateBoard(){
+        
+    }
+
+
+}
+
+let currentGame;
     
-
-
+function initializeGame(){
+    currentGame=new TicTacToe
 }
