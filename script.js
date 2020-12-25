@@ -47,30 +47,22 @@ class TicTacToe {
 
     convertIdToIndex(id) {
         const numericId = Number(id);
-        // 1 -> 0, 0
-        // 3 -> 0, 2
-        // 4 -> 1, 0
-        // 9 -> 2, 2
+     
         return [ Math.ceil(numericId/3) - 1 , (numericId - 1)%3 ];
     }
 
     changePlayerTurn() {
         this.playerTurn = this.playerTurn === 'X' ? 'O' : 'X';
-        // if(this.playerTurn === 'X') {
-        //     this.playerTurn = 'O';
-        // }
-        // else {
-        //     this.playerTurn = 'X';
-        // }
+ 
         this.renderBoard();
         this.checkGameEnd();
-        // setTimeout(() => this.checkGameEnd(), 0);
+        
     }
 
     checkGameEnd() {
         let won = true;
         
-        // check for rows
+    
         for(let i=0; i<3;i++) {
             won = true;
 
@@ -84,7 +76,7 @@ class TicTacToe {
                 return this.alertWin(this.boardState[i][0]);
             }
         }
-        // check for cols
+    
         for(let j=0; j<3; j++) {
             won = true;
 
@@ -98,7 +90,7 @@ class TicTacToe {
                 return this.alertWin(this.boardState[0][j]);
             }
         }
-        // check forward diagnol
+    
         won = true;
         for(let i=1; i<3; i++) {
             if(this.boardState[i][i] !== this.boardState[i-1][i-1]) {
@@ -109,7 +101,7 @@ class TicTacToe {
         if(won && this.boardState[0][0]!== '') {
                 return this.alertWin(this.boardState[0][0]);
         }
-        // check anti-diagnol
+     
         won = true;
         for(let i=1; i<3; i++) {
             if(this.boardState[i][2-i] !== this.boardState[i-1][2-i+1]) {
@@ -120,7 +112,7 @@ class TicTacToe {
         if(won && this.boardState[2][0]!== '') {
                 return this.alertWin(this.boardState[2][0]);
         }
-        // check for draw
+       
         let draw = true;
         for(let i=0; i<3; i++) {
             for(let j=0; j<3; j++) {
